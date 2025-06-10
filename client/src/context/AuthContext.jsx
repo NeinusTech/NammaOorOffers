@@ -57,6 +57,7 @@ export const AuthProvider = ({ children }) => {
         localStorage.removeItem("user");
         dispatch({ type: "LOGOUT" });
         toast.error("Session expired. Please log in again.");
+        console.log("error",err)
       }
     };
 

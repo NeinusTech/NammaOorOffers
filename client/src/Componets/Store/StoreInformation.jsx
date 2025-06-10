@@ -1,37 +1,37 @@
-import React, { useState } from "react";
-import "../../styles/StoreInformation.css";
-import { useStore } from "../../context/StoreContext";
+import React, {useState} from 'react';
+import '../../styles/StoreInformation.css';
+import {useStore} from '../../context/StoreContext';
 const StoreInformation = () => {
-  const { createStore } = useStore();
+  const {createStore} = useStore ();
 
-  const [storeName, setStoreName] = useState("");
-  const [storeLogo, setStoreLogo] = useState(null);
-  const [storeWebsite, setStoreWebsite] = useState("");
-  const [storeAddress, setStoreAddress] = useState("");
-  const [storeCity, setStoreCity] = useState("");
-  const [storeDescription, setStoreDescription] = useState("");
-  const [instagramLink, setInstagramLink] = useState("");
-  const [youtubeLink, setYoutubeLink] = useState("");
-  const [xLink, setXLink] = useState("");
-  const [facebookLink, setFacebookLink] = useState("");
+  const [storeName, setStoreName] = useState ('');
+  const [storeLogo, setStoreLogo] = useState (null);
+  const [storeWebsite, setStoreWebsite] = useState ('');
+  const [storeAddress, setStoreAddress] = useState ('');
+  const [storeCity, setStoreCity] = useState ('');
+  const [storeDescription, setStoreDescription] = useState ('');
+  const [instagramLink, setInstagramLink] = useState ('');
+  const [youtubeLink, setYoutubeLink] = useState ('');
+  const [xLink, setXLink] = useState ('');
+  const [facebookLink, setFacebookLink] = useState ('');
 
-  const [loading, setLoading] = useState(false);
-  const [message, setMessage] = useState("");
+  const [loading, setLoading] = useState (false);
+  const [message, setMessage] = useState ('');
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setLoading(true);
-    setMessage("");
+  const handleSubmit = async e => {
+    e.preventDefault ();
+    setLoading (true);
+    setMessage ('');
 
-    const formData = new FormData();
-    formData.append("storeName", storeName);
-    formData.append("storeWebsite", storeWebsite);
-    formData.append("storeAddress", storeAddress);
-    formData.append("storeCity", storeCity);
-    formData.append("storeDescription", storeDescription);
-    formData.append(
-      "socialMedia",
-      JSON.stringify({
+    const formData = new FormData ();
+    formData.append ('storeName', storeName);
+    formData.append ('storeWebsite', storeWebsite);
+    formData.append ('storeAddress', storeAddress);
+    formData.append ('storeCity', storeCity);
+    formData.append ('storeDescription', storeDescription);
+    formData.append (
+      'socialMedia',
+      JSON.stringify ({
         instagram: instagramLink,
         youtube: youtubeLink,
         twitter: xLink,
@@ -40,29 +40,29 @@ const StoreInformation = () => {
     );
 
     if (storeLogo) {
-      formData.append("storeLogo", storeLogo);
+      formData.append ('storeLogo', storeLogo);
     }
 
     try {
-      const response = await createStore(formData);
-      setMessage("✅ Store information submitted successfully!");
-
+      const response = await createStore (formData);
+      setMessage ('✅ Store information submitted successfully!');
+      console.log ('Error submitting store:', response);
       // Reset form
-      setStoreName("");
-      setStoreLogo(null);
-      setStoreWebsite("");
-      setStoreAddress("");
-      setStoreCity("");
-      setStoreDescription("");
-      setInstagramLink("");
-      setYoutubeLink("");
-      setXLink("");
-      setFacebookLink("");
+      setStoreName ('');
+      setStoreLogo (null);
+      setStoreWebsite ('');
+      setStoreAddress ('');
+      setStoreCity ('');
+      setStoreDescription ('');
+      setInstagramLink ('');
+      setYoutubeLink ('');
+      setXLink ('');
+      setFacebookLink ('');
     } catch (err) {
-      console.error("Error submitting store:", err);
-      setMessage(err.message || "❌ Failed to submit store information.");
+      console.error ('Error submitting store:', err);
+      setMessage (err.message || '❌ Failed to submit store information.');
     } finally {
-      setLoading(false);
+      setLoading (false);
     }
   };
 
@@ -70,15 +70,12 @@ const StoreInformation = () => {
     <div className="store-info-container">
       <h2 className="store-info-heading">Add Store Information</h2>
 
-      {message && (
+      {message &&
         <div
-          className={`store-info-message ${
-            message.includes("success") ? "store-info-success" : "store-info-error"
-          }`}
+          className={`store-info-message ${message.includes ('success') ? 'store-info-success' : 'store-info-error'}`}
         >
           {message}
-        </div>
-      )}
+        </div>}
 
       <form onSubmit={handleSubmit} className="store-info-form">
         <div className="store-info-group">
@@ -86,7 +83,7 @@ const StoreInformation = () => {
           <input
             type="text"
             value={storeName}
-            onChange={(e) => setStoreName(e.target.value)}
+            onChange={e => setStoreName (e.target.value)}
             className="store-info-input"
             required
           />
@@ -96,7 +93,7 @@ const StoreInformation = () => {
           <label className="store-info-label">Store Logo</label>
           <input
             type="file"
-            onChange={(e) => setStoreLogo(e.target.files[0])}
+            onChange={e => setStoreLogo (e.target.files[0])}
             className="store-info-file"
             accept="image/*"
           />
@@ -107,7 +104,7 @@ const StoreInformation = () => {
           <input
             type="url"
             value={storeWebsite}
-            onChange={(e) => setStoreWebsite(e.target.value)}
+            onChange={e => setStoreWebsite (e.target.value)}
             className="store-info-input"
           />
         </div>
@@ -117,7 +114,7 @@ const StoreInformation = () => {
           <input
             type="text"
             value={storeAddress}
-            onChange={(e) => setStoreAddress(e.target.value)}
+            onChange={e => setStoreAddress (e.target.value)}
             className="store-info-input"
           />
         </div>
@@ -127,7 +124,7 @@ const StoreInformation = () => {
           <input
             type="text"
             value={storeCity}
-            onChange={(e) => setStoreCity(e.target.value)}
+            onChange={e => setStoreCity (e.target.value)}
             className="store-info-input"
           />
         </div>
@@ -136,7 +133,7 @@ const StoreInformation = () => {
           <label className="store-info-label">Description</label>
           <textarea
             value={storeDescription}
-            onChange={(e) => setStoreDescription(e.target.value)}
+            onChange={e => setStoreDescription (e.target.value)}
             className="store-info-textarea"
             rows="4"
           />
@@ -150,7 +147,7 @@ const StoreInformation = () => {
             <input
               type="url"
               value={instagramLink}
-              onChange={(e) => setInstagramLink(e.target.value)}
+              onChange={e => setInstagramLink (e.target.value)}
               className="store-info-input"
             />
           </div>
@@ -160,7 +157,7 @@ const StoreInformation = () => {
             <input
               type="url"
               value={youtubeLink}
-              onChange={(e) => setYoutubeLink(e.target.value)}
+              onChange={e => setYoutubeLink (e.target.value)}
               className="store-info-input"
             />
           </div>
@@ -170,7 +167,7 @@ const StoreInformation = () => {
             <input
               type="url"
               value={xLink}
-              onChange={(e) => setXLink(e.target.value)}
+              onChange={e => setXLink (e.target.value)}
               className="store-info-input"
             />
           </div>
@@ -180,14 +177,18 @@ const StoreInformation = () => {
             <input
               type="url"
               value={facebookLink}
-              onChange={(e) => setFacebookLink(e.target.value)}
+              onChange={e => setFacebookLink (e.target.value)}
               className="store-info-input"
             />
           </div>
         </div>
 
-        <button type="submit" className="store-info-submit-btn" disabled={loading}>
-          {loading ? "Submitting..." : "Submit Store Information"}
+        <button
+          type="submit"
+          className="store-info-submit-btn"
+          disabled={loading}
+        >
+          {loading ? 'Submitting...' : 'Submit Store Information'}
         </button>
       </form>
     </div>

@@ -34,6 +34,7 @@ const CouponDetail = () => {
         setEditedCoupon(data);
       } catch (err) {
         setError("Failed to fetch coupon");
+        console.log("error",err)
       } finally {
         setLoading(false);
       }

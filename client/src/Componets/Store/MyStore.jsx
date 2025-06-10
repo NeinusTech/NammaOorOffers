@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useStore } from "../../context/StoreContext";
-import "../../styles/MyStore.css";
+import "../../styles/Mystore.css";
 
 const MyStore = () => {
   const {
@@ -57,7 +57,7 @@ const MyStore = () => {
       setEditMode(false);
       await fetchMyStore(); // Refresh store info after update
     } catch (err) {
-      console.error("Update failed:", err.message);
+      console.error("Update failed: ", err.message);
     }
   };
 
