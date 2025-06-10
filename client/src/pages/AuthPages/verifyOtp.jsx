@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { useAuth } from "../../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import logo from "../../assets/Logo.png"; // ✅ Add your logo path here
+import logo from "../../assets/logo.png"; // ✅ Add your logo path here
 import "../../styles/VerifyOtp.css";
 
 const VerifyOtp = () => {
