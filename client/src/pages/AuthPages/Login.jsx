@@ -5,7 +5,6 @@ import { FaUser, FaLock, FaArrowRight } from "react-icons/fa";
 import { GoogleLogin } from "@react-oauth/google";
 import "../../styles/Login.css";
 
-import logo from "../../assets/logo.png"; // Optional: replace with your logo
 
 const Login = () => {
   const [email, setEmail] = useState("");
