@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useStore } from "../../context/StoreContext";
-import "../../styles/MyStore.css";
+import "../../styles/Mystore.css";
 
 const MyStore = () => {
   const {
