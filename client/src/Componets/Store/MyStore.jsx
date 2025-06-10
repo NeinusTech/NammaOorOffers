@@ -57,7 +57,7 @@ const MyStore = () => {
       setEditMode(false);
       await fetchMyStore(); // Refresh store info after update
     } catch (err) {
-      console.error("Update failed:", err.message);
+      console.error("Update failed: ", err.message);
     }
   };
 
