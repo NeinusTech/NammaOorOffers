@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { useAuth } from "../../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import "../../styles/VerifyOtp.css";
+import "../../styles/Verifyotp.css";
 
 const VerifyOtp = () => {
   const [otp, setOtp] = useState(new Array(6).fill(""));
